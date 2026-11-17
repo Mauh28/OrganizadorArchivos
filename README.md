@@ -4,11 +4,11 @@ Aplicación de escritorio moderna, minimalista y de alto rendimiento creada con 
 
 ---
 
-## 🚀 Características principales
+## Características principales
 
 1. **Escaneo inteligente de primer nivel:**
-   - Analiza **únicamente** los archivos sueltos en `C:\Users\Mauro\Downloads` (o la carpeta que elijas).
-   - Ignora automáticamente todas las carpetas preexistentes para proteger tus proyectos y estructuras previas.
+   - Detecta automáticamente la carpeta de descargas del usuario activo (`Users>Nombre>Descargas`, o la ruta que configures).
+   - Analiza **únicamente** los archivos sueltos en la raíz de dicha carpeta e ignora automáticamente todas las subcarpetas preexistentes para proteger tus proyectos y estructuras previas.
    - Descarta archivos temporales (`.crdownload`, `.part`, `.tmp`) y de sistema (`desktop.ini`).
 
 2. **Organización por extensión y fecha:**
@@ -22,17 +22,17 @@ Aplicación de escritorio moderna, minimalista y de alto rendimiento creada con 
 
 4. **Botón Deshacer (Reversión completa):**
    - Cada empaquetado genera un registro de transacciones (*ledger*).
-   - Si te arrepientes, con un clic en **"↩ Deshacer"** todos los archivos vuelven a su posición exacta original y las carpetas vacías se limpian.
+   - Con un clic en **"Deshacer"** todos los archivos vuelven a su posición exacta original y las carpetas vacías se limpian.
 
-5. **Diseño minimalista con tema automático:**
+5. **Interfaz estilo Visual Studio Code (70% / 30%) con tema automático:**
    - Detecta automáticamente el tema del sistema (Claro / Oscuro) de Windows mediante `@media (prefers-color-scheme)`.
-   - Barra superior con selector/editor de ruta y botón de escaneo.
-   - Tarjetas colapsables por grupo con selección rápida (todo el grupo o archivos individuales).
-   - Barra inferior fija con conteo de archivos seleccionados, tamaño total y botón para empaquetar.
+   - **70% izquierda:** Explorador agrupado por extensión con iconos vectoriales de **Font Awesome** diferenciados por formato.
+   - **30% derecha:** Panel de detalles del archivo seleccionado con previsualización de imágenes/videos, metadatos y ruta de destino planificada.
+   - Barra de estado inferior con conteo de seleccionados, tamaño total y botón para empaquetar.
 
 ---
 
-## 🛠️ Estructura del código
+## Estructura del código
 
 Diseñado bajo el principio de responsabilidad única y módulos pequeños (< 100-150 líneas por archivo):
 
@@ -42,12 +42,24 @@ organizador/
 │   ├── lib/
 │   │   ├── types.ts              # Modelos tipados sincronizados con Rust
 │   │   ├── api.ts                # Clientes para invoke() y formateadores
-│   │   ├── theme.css             # Variables CSS para modo claro y oscuro
+│   │   ├── fileIcons.ts          # Mapeo de extensiones a iconos Font Awesome
+│   │   ├── Icon.svelte           # Componente de iconos vectoriales
 │   │   ├── Header.svelte         # Barra superior con ruta, escaneo y deshacer
-│   │   ├── CategoryCard.svelte   # Tarjetas colapsables por extensión
+│   │   ├── CategoryCard.svelte   # Secciones colapsables por extensión
 │   │   ├── FileRow.svelte        # Fila de archivo individual con fechas y tamaño
-│   │   ├── ActionBar.svelte      # Barra inferior con botón de empaquetado
+│   │   ├── FileDetailPanel.svelte# Panel lateral derecho con propiedades y vista previa
+│   │   ├── ActionBar.svelte      # Barra inferior de estado y empaquetado
 │   │   └── ReportModal.svelte    # Modal con resumen de archivos movidos y errores
+│   ├── styles/                   # Hojas de estilo CSS desacopladas por componente
+│   │   ├── theme.css             # Paleta VS Code Light/Dark Modern
+│   │   ├── page.css              # Distribución 70/30 maestro-detalle
+│   │   ├── header.css
+│   │   ├── category-card.css
+│   │   ├── file-row.css
+│   │   ├── details-panel.css
+│   │   ├── action-bar.css
+│   │   ├── report-modal.css
+│   │   └── icon.css
 │   └── routes/
 │       └── +page.svelte          # Vista principal reactiva
 │
@@ -69,7 +81,7 @@ organizador/
 
 ---
 
-## 💻 Cómo ejecutar la aplicación
+## Cómo ejecutar la aplicación
 
 ### Modo Desarrollo (con recarga en vivo)
 ```powershell

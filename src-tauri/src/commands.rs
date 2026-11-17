@@ -6,16 +6,26 @@ use crate::models::{FileItem, OrganizeReport, ScanResult, UndoReport};
 use crate::organizer::organize_files;
 use crate::scanner::scan_directory;
 
-/// Obtiene la ruta por defecto de la carpeta Descargas del usuario de Windows.
+/// Obtiene la ruta por defecto de la carpeta Descargas del usuario actual de forma dinámica
+/// (`Users > Nombre > Descargas` / `Downloads` en el sistema de archivos).
 #[tauri::command]
 pub fn get_default_downloads_dir() -> String {
     if let Ok(profile) = env::var("USERPROFILE") {
         let downloads = PathBuf::from(profile).join("Downloads");
-        if downloads.exists() {
-            return downloads.to_string_lossy().to_string();
-        }
+        return downloads.to_string_lossy().to_string();
     }
-    r"C:\Users\Mauro\Downloads".to_string()
+    if let Ok(home) = env::var("HOME") {
+        let downloads = PathBuf::from(home).join("Downloads");
+        return downloads.to_string_lossy().to_string();
+    }
+    if let Ok(username) = env::var("USERNAME") {
+        return PathBuf::from(r"C:\Users")
+            .join(username)
+            .join("Downloads")
+            .to_string_lossy()
+            .to_string();
+    }
+    String::new()
 }
 
 /// Comando Tauri para escanear los archivos sueltos en el primer nivel.
