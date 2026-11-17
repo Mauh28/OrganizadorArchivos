@@ -1,0 +1,77 @@
+.category-card {
+  background: transparent;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px 0 8px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+}
+
+.category-card .card-header:hover {
+  background: var(--bg-tertiary);
+}
+
+.category-card .header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.category-card .expand-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 2px 4px;
+}
+
+.category-card .group-title {
+  color: var(--text-primary);
+}
+
+.category-card .ext-tags {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+  font-family: Consolas, monospace;
+}
+
+.category-card .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+
+.category-card .count-badge {
+  background: var(--bg-tertiary);
+  padding: 1px 6px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.category-card .size-badge {
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  min-width: 60px;
+  text-align: right;
+}
+
+.category-card .files-list {
+  background: var(--bg-primary);
+}

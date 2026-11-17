@@ -1,0 +1,85 @@
+:root {
+  /* VS Code Light Modern */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f8f8;
+  --bg-tertiary: #e8e8e8;
+  --border-color: #e5e5e5;
+  --text-primary: #3b3b3b;
+  --text-secondary: #616161;
+  --accent: #005fb8;
+  --accent-hover: #0258a8;
+  --accent-light: #e4e6f1;
+  --list-selected-bg: #eef4fb;
+  --success: #1a7f37;
+  --success-bg: #dafbe1;
+  --danger: #cf222e;
+  --danger-bg: #ffebe9;
+  --card-bg: #ffffff;
+  --header-bg: #f8f8f8;
+  --statusbar-bg: #f8f8f8;
+  --statusbar-border: #e5e5e5;
+  --scrollbar-thumb: rgba(100, 100, 100, 0.25);
+  --scrollbar-thumb-hover: rgba(100, 100, 100, 0.45);
+  --font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* VS Code Dark Modern */
+    --bg-primary: #1f1f1f;
+    --bg-secondary: #181818;
+    --bg-tertiary: #2a2d2e;
+    --border-color: #2b2b2b;
+    --text-primary: #cccccc;
+    --text-secondary: #8b949e;
+    --accent: #0078d4;
+    --accent-hover: #1b8aeb;
+    --accent-light: #04395e;
+    --list-selected-bg: #092c48;
+    --success: #3fb950;
+    --success-bg: #122c19;
+    --danger: #f85149;
+    --danger-bg: #3c1e1e;
+    --card-bg: #1f1f1f;
+    --header-bg: #181818;
+    --statusbar-bg: #181818;
+    --statusbar-border: #2b2b2b;
+    --scrollbar-thumb: rgba(121, 121, 121, 0.35);
+    --scrollbar-thumb-hover: rgba(121, 121, 121, 0.55);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.4;
+  font-size: 13px;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+/* Scrollbar estilo VS Code */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}

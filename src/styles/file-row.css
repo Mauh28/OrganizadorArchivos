@@ -1,0 +1,88 @@
+.file-row {
+  display: grid;
+  grid-template-columns: 22px 18px 1fr 125px 68px;
+  align-items: center;
+  gap: 8px;
+  height: 26px;
+  padding: 0 12px 0 24px;
+  font-size: 12.5px;
+  transition: background-color 0.08s ease;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+}
+
+.file-row:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.file-row.selected {
+  background-color: var(--list-selected-bg);
+}
+
+.file-row.active {
+  background-color: var(--accent-light);
+  border-left-color: var(--accent);
+}
+
+.file-row .checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.file-row .file-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-row .file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.file-row .file-name {
+  font-weight: 400;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-row .dest-badge {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+  font-family: Consolas, monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.file-row .meta-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.file-row .meta-label {
+  display: none;
+}
+
+.file-row .hide-mobile {
+  display: none;
+}
+
+.file-row .size-col {
+  text-align: right;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}

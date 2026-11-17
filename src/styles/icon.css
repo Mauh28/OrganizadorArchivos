@@ -1,0 +1,23 @@
+.app-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Colores distintivos para tipos de archivo estilo VS Code */
+.icon-pdf { color: #f14c4c; }
+.icon-word { color: #3794ff; }
+.icon-excel { color: #4ec9b0; }
+.icon-ppt { color: #ce9178; }
+.icon-text { color: #9cdcfe; }
+.icon-archive { color: #dcdcaa; }
+.icon-image { color: #c586c0; }
+.icon-video { color: #d16969; }
+.icon-audio { color: #4fc1ff; }
+.icon-exec { color: #569cd6; }
+.icon-iso { color: #b5cea8; }
+.icon-diagram { color: #d7ba7d; }
+.icon-code { color: #e5c07b; }
+.icon-default { color: var(--text-secondary); }

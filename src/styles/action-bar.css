@@ -1,0 +1,80 @@
+.action-bar {
+  height: 34px;
+  background: var(--statusbar-bg);
+  border-top: 1px solid var(--statusbar-border);
+  padding: 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 40;
+}
+
+.action-bar .stats-side {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.action-bar .selection-pill {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.action-bar .size-pill {
+  color: var(--text-secondary);
+}
+
+.action-bar .btn-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 4px;
+  text-decoration: none;
+}
+
+.action-bar .btn-link:hover {
+  text-decoration: underline;
+}
+
+.action-bar .btn-organize {
+  background: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.1s ease;
+}
+
+.action-bar .btn-organize:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.action-bar .btn-organize:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.action-bar .spinner {
+  width: 11px;
+  height: 11px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: action-spin 0.8s linear infinite;
+}
+
+@keyframes action-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
